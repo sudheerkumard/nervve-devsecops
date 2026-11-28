@@ -40,6 +40,7 @@ jobs:
       - name: Release variables
         id: v
         run: |
+          mkdir -p dist             # release assets: SBOM, chart, notes, checksums
           V="${GITHUB_REF_NAME#v}"; OWNER="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
           { echo "version=$V"; echo "minor=$(echo "$V" | cut -d. -f1,2)"; echo "owner=$OWNER"
             echo "image=ghcr.io/$OWNER/nerve-myelin"; echo "cli=ghcr.io/$OWNER/myelin-cli"
