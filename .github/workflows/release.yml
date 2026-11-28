@@ -27,7 +27,7 @@ jobs:
   ci:
     needs: gate
     uses: ./.github/workflows/ci.yml
-    permissions: { contents: read, packages: write, id-token: write, attestations: write }
+    permissions: { contents: read, pull-requests: read, packages: write, id-token: write, attestations: write }
     secrets: inherit
 
   publish:
